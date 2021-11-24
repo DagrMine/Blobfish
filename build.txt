@@ -1,0 +1,3 @@
+displayName = Blobfish
+author = DagrMine
+version = 0.1
