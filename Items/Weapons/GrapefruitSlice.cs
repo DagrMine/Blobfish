@@ -8,10 +8,10 @@ namespace Blobfish.Items.Weapons
 {
 	public class GrapefruitSlice : ModItem
 	{
-		public override string Texture => "Blobfish/Images/OrangeSlice";
+		public override string Texture => "Blobfish/Images/GrapefruitSlice";
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Slice of Orange"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Slice of Grapefruit"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
 			Tooltip.SetDefault("Bop.");
 		}
 
@@ -27,12 +27,11 @@ namespace Blobfish.Items.Weapons
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 6;
 			item.value = 10000;
-			item.rare = -13;
+			item.rare = ItemRarityID.Pink;
 			item.UseSound = SoundID.Item2;
 			item.autoReuse = true;
 			item.shoot = ModContent.ProjectileType<GrapefruitSliceProj>();
 			item.shootSpeed = 10f;
-			item.color = Color.Pink;
 		}
 		public override void AddRecipes() 
 		{

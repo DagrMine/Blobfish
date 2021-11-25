@@ -5,7 +5,7 @@ namespace Blobfish.Items.Weapons
 {
 	public class Yeetbat : ModItem
 	{
-		public override string Texture => "Blobfish/Items/Weapons/BaseballBat";
+		public override string Texture => "Blobfish/Images/BaseballBat";
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Yeetbat");

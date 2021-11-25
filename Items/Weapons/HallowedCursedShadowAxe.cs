@@ -8,6 +8,8 @@ namespace Blobfish.Items.Weapons
 	public class HallowedCursedShadowAxe : ModItem
 	{
 		//May need to adjust amounts of dust for FPS later
+		//Make this have a dual use where it inflicts either cursed flame or shadowflame and changes the sprite?
+		//https://github.com/tModLoader/tModLoader/blob/dfe30aae2a3ecc8f5f7bc45db2132e386ddb90f5/ExampleMod/Items/Weapons/ExampleDualUseWeapon.cs code reference
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Cursed Shadowflame Battleaxe");
@@ -15,11 +17,11 @@ namespace Blobfish.Items.Weapons
 		}
 		public override void SetDefaults() 
 		{
-			item.damage = 48;
+			item.damage = 100;
 			item.melee = true;
 			item.width = 94;
 			item.height = 94;
-			item.useTime = 20;
+			item.useTime = 30;
 			item.useAnimation = 30;
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 5.85f;
@@ -40,8 +42,8 @@ namespace Blobfish.Items.Weapons
 		}
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
 		{
-			target.AddBuff(BuffID.ShadowFlame, 240); //Gives X to target for 4 seconds. (60 = 1 second, 240 = 4 seconds)
-			target.AddBuff(BuffID.CursedInferno, 240);
+			target.AddBuff(BuffID.ShadowFlame, 180); //Gives X to target for 4 seconds. (60 = 1 second, 240 = 4 seconds)
+			target.AddBuff(BuffID.CursedInferno, 180);
 		}
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
@@ -82,19 +84,44 @@ namespace Blobfish.Items.Weapons
 
 			if (Main.rand.NextBool(2))
 			{
-				Dust dust1 = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.CursedTorch);
+				Dust dust2 = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.CursedTorch);
 				if (Main.rand.NextBool(3))
 				{
-					dust1.noGravity = true;
-					dust1.scale *= 3f;
-					dust1.velocity.X *= 2f;
-					dust1.velocity.Y *= 2f;
+					dust2.noGravity = true;
+					dust2.scale *= 3f;
+					dust2.velocity.X *= 2f;
+					dust2.velocity.Y *= 2f;
 				}
 
-				dust1.scale *= 1.1f;
-				dust1.velocity *= 1.2f;
-				dust1.scale *= dustScale2;
+				dust2.scale *= 1.1f;
+				dust2.velocity *= 1.2f;
+				dust2.scale *= dustScale2;
 			}
 		}
-    }
+		//The right click effects
+		public override bool AltFunctionUse(Player player)
+		{
+			return true;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			if (player.altFunctionUse == 2)
+			{
+				item.useStyle = ItemUseStyleID.Stabbing;
+				item.useTime = 20;
+				item.useAnimation = 20;
+				item.damage = 50;
+				item.shoot = ;
+	}
+			else
+			{
+				item.useStyle = ItemUseStyleID.SwingThrow;
+				item.useTime = 40;
+				item.useAnimation = 40;
+				item.damage = 100;
+			}
+			return base.CanUseItem(player);
+		}
+	}
 }

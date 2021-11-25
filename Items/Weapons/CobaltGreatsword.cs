@@ -13,7 +13,7 @@ namespace Blobfish.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 50;
+			item.damage = 52;
 			item.melee = true;
 			item.width = 78;
 			item.height = 78;
@@ -30,7 +30,7 @@ namespace Blobfish.Items.Weapons
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.CobaltBar, 10);
+			recipe.AddIngredient(ItemID.CobaltBar, 12);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

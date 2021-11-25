@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 namespace Blobfish.Projectiles
 {
 	// Code adapted from the vanilla's magic missile.
-	public class CursedMissile : ModProjectile
+	public class EyeOfRotProj : ModProjectile
 	{
 		public override string Texture => "Terraria/Projectile_" + ProjectileID.CursedFlameFriendly;
 		public override void SetDefaults() {
@@ -31,7 +31,7 @@ namespace Blobfish.Projectiles
 			}
 
 			Vector2 dustPosition = projectile.Center + new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-4, 5));
-			Dust dust = Dust.NewDustPerfect(dustPosition, DustID.CursedTorch, null, 100, Color.Lime, 1.8f);
+			Dust dust = Dust.NewDustPerfect(dustPosition, DustID.Vile, null, 100, Color.Lime, 1.8f);
 			dust.velocity *= 0.3f;
 			dust.noGravity = true;
 
@@ -128,20 +128,20 @@ namespace Blobfish.Projectiles
 
 			Main.PlaySound(SoundID.Item10, projectile.position);
 			for (int i = 0; i < 10; i++) {
-				Dust dust = Dust.NewDustDirect(projectile.position - projectile.velocity, projectile.width, projectile.height, DustID.CursedTorch, 0, 0, 100, Color.Lime, 1.2f);
+				Dust dust = Dust.NewDustDirect(projectile.position - projectile.velocity, projectile.width, projectile.height, DustID.Vile, 0, 0, 100, Color.Lime, 1.2f);
 				dust.noGravity = true;
 				dust.velocity *= 2f;
-				dust = Dust.NewDustDirect(projectile.position - projectile.velocity, projectile.width, projectile.height, DustID.CursedTorch, 0f, 0f, 100, Color.Lime, 0.8f);
+				dust = Dust.NewDustDirect(projectile.position - projectile.velocity, projectile.width, projectile.height, DustID.Vile, 0f, 0f, 100, Color.Lime, 0.8f);
 			}
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			target.AddBuff(BuffID.CursedInferno, 180); //Gives cursed flames to target for 4 seconds. (60 = 1 second, 240 = 4 seconds)
+			target.AddBuff(BuffID.CursedInferno, 120); //Gives cursed flames to target for 4 seconds. (60 = 1 second, 240 = 4 seconds)
 		}
 
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
-			target.AddBuff(BuffID.CursedInferno, 180, false);
+			target.AddBuff(BuffID.CursedInferno, 120, false);
 		}
 	}
 }

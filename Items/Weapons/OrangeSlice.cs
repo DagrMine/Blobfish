@@ -27,7 +27,7 @@ namespace Blobfish.Items.Weapons
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 6;
 			item.value = 10000;
-			item.rare = -13;
+			item.rare = ItemRarityID.Orange;
 			item.UseSound = SoundID.Item2;
 			item.autoReuse = true;
 			item.shoot = ModContent.ProjectileType<OrangeSliceProj>();

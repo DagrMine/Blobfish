@@ -39,7 +39,7 @@ namespace Blobfish.Items.Weapons
 		}
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
 		{
-			target.AddBuff(BuffID.ShadowFlame, 180); //Gives X to target for 4 seconds. (60 = 1 second, 240 = 4 seconds)
+			target.AddBuff(BuffID.ShadowFlame, 80); //Gives X to target for 4 seconds. (60 = 1 second, 240 = 4 seconds)
 		}
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{

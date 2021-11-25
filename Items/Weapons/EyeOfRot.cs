@@ -25,12 +25,12 @@ namespace Blobfish.Items.Weapons
 			item.height = 77;
 			item.useTime = 18;
 			item.useAnimation = 18;
-			item.useStyle = ItemUseStyleID.HoldingOut;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.knockBack = 6;
 			item.value = Item.sellPrice(gold: 2, silver: 30);
 			item.rare = 8;
 			item.UseSound = SoundID.Item34;
-			item.shoot = ModContent.ProjectileType<CursedMissile>();
+			item.shoot = ModContent.ProjectileType<EyeOfRotProj>();
 			item.shootSpeed = 10f;
 		}
 		public override void AddRecipes() 

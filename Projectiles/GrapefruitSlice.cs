@@ -8,7 +8,7 @@ namespace Blobfish.Projectiles
 {
 	public class GrapefruitSliceProj : ModProjectile
 	{
-		public override string Texture => "Blobfish/Images/OrangeSlice";
+		public override string Texture => "Blobfish/Images/GrapefruitSlice";
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Slice of Grapefruit Projectile");     //The English name of the projectile
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;    //The length of old position to be recorded
