@@ -18,10 +18,10 @@ namespace Blobfish.Items.Bread
 			item.melee = true;
 			item.width = 26;
 			item.height = 26;
-			item.useTime = 20;
-			item.useAnimation = 20;
+			item.useTime = 12;
+			item.useAnimation = 12;
 			item.useStyle = 3;
-			item.knockBack = 6;
+			item.knockBack = 30f;
 			item.value = 1000;
 			item.rare = -12;
 			item.UseSound = SoundID.Item1;

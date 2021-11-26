@@ -15,7 +15,7 @@ namespace Blobfish.Items.Bread
 
 		public override void SetDefaults() 
 		{
-			item.damage = 2;
+			item.damage = 1;
 			item.ranged = true;
 			item.noMelee = true;
 			item.width = 26;

@@ -16,10 +16,10 @@ namespace Blobfish.Items.Bread
 		{
 			item.damage = 2;
 			item.melee = true;
-			item.width = 26;
-			item.height = 26;
-			item.useTime = 20;
-			item.useAnimation = 20;
+			item.width = 52;
+			item.height = 52;
+			item.useTime = 6;
+			item.useAnimation = 6;
 			item.useStyle = 4;
 			item.knockBack = 6;
 			item.value = 1000;

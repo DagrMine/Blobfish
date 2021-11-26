@@ -10,7 +10,7 @@ namespace Blobfish.Items.Weapons
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Shadowflame Battleaxe");
-			Tooltip.SetDefault("C h o p");
+			Tooltip.SetDefault("C h o p\nInflicts shadowflame for 1.3 seconds");
 		}
 		public override void SetDefaults() 
 		{
@@ -18,10 +18,10 @@ namespace Blobfish.Items.Weapons
 			item.melee = true;
 			item.width = 76;
 			item.height = 76;
-			item.useTime = 20;
-			item.useAnimation = 30;
+			item.useTime = 24;
+			item.useAnimation = 24;
 			item.useStyle = ItemUseStyleID.SwingThrow;
-			item.knockBack = 5.85f;
+			item.knockBack = 3.6f;
 			item.value = 1380;
 			item.rare = 4;
 			item.UseSound = SoundID.Item1;
@@ -31,7 +31,8 @@ namespace Blobfish.Items.Weapons
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.ShadowFlameHexDoll, 1);
+			recipe.AddIngredient(ModContent.ItemType<ShadowFlameItem>(), 4);
+			recipe.AddIngredient(ItemID.DemoniteBar, 16);
 			recipe.AddTile(TileID.Anvils);
 			//recipe.AddTile(TileID.ShadowAnvil); Modded Anvil, add later when 
 			recipe.SetResult(this);

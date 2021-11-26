@@ -49,7 +49,7 @@ namespace Blobfish.Items.Weapons.Flamethrowers
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
-			Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 122f;
+			Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 109f;
 			if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
 			{
 				position += muzzleOffset;
@@ -63,7 +63,10 @@ namespace Blobfish.Items.Weapons.Flamethrowers
 			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<CrimsonFlames>(), damage = 80, knockBack = 1, player.whoAmI);
 			return true;
 		}
-
+		public override Vector2? HoldoutOffset()
+		{
+			return new Vector2(-13, 0);
+		}
 		public override bool ConsumeAmmo(Player player)
 		{
 			return Main.rand.NextFloat() >= .80f;

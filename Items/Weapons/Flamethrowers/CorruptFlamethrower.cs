@@ -10,8 +10,8 @@ namespace Blobfish.Items.Weapons.Flamethrowers
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Corrupt Darkthrower");
-			Tooltip.SetDefault("Shoots darkness or something. Spooky.\n80% Chance not to consume ammo.\nUses Gel for ammo\nDoes more than 16 damage due to cursed flame debuff");
+			DisplayName.SetDefault("Corrupt Flamethrower");
+			Tooltip.SetDefault("Shoots darkness or something. Spooky.\n80% Chance not to consume ammo.\nUses Gel for ammo\nInflicts Cursed Flames for 1 second");
 		}
 
 		public override void SetDefaults()

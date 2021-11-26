@@ -15,7 +15,7 @@ namespace Blobfish.Items.Weapons
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cursed Shadowflame Battleaxe");
-			Tooltip.SetDefault("A dual shadowflame cursed battleaxe held together by hallowed bars.\n<left> swings with the cursed edge, <right> swings with the shadowflame edge.");
+			Tooltip.SetDefault("A dual shadowflame cursed battleaxe held together by hallowed bars.\n Left Click(attack button) swings with the cursed edge, <right> swings with the shadowflame edge.");
 		}
 		public override void SetDefaults()
 		{
@@ -36,9 +36,9 @@ namespace Blobfish.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.ShadowFlameHexDoll, 1);
-			recipe.AddTile(TileID.Anvils);
-			//recipe.AddTile(TileID.ShadowAnvil); Modded Anvil, add later when 
+			recipe.AddIngredient(ModContent.ItemType<ShadowFlameItem>(), 20);
+			recipe.AddTile(TileID.MythrilAnvil);
+			//recipe.AddTile(TileID.ShadowAnvil); Modded Anvil, add later maybe? 
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
@@ -55,64 +55,70 @@ namespace Blobfish.Items.Weapons
 		}
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
-			//This ones emits shadowflame particles at random sizes and intervals
-			float projAI1 = Main.rand.NextFloat(2f);
-			float dustScale1 = 1f;
-			if (projAI1 == 0f)
-				dustScale1 = 0.25f;
-			else if (projAI1 == 1f)
-				dustScale1 = 0.5f;
-			else if (projAI1 == 2f)
-				dustScale1 = 0.75f;
-
-			if (Main.rand.NextBool(2))
+			if (player.altFunctionUse == 2)
 			{
-				Dust dust1 = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Shadowflame);
-				if (Main.rand.NextBool(3))
-				{
-					dust1.noGravity = true;
-					dust1.scale *= 3f;
-					dust1.velocity.X *= 2f;
-					dust1.velocity.Y *= 2f;
-				}
+				//This ones emits shadowflame particles at random sizes and intervals
+				float projAI1 = Main.rand.NextFloat(2f);
+				float dustScale1 = 1f;
+				if (projAI1 == 0f)
+					dustScale1 = 0.25f;
+				else if (projAI1 == 1f)
+					dustScale1 = 0.5f;
+				else if (projAI1 == 2f)
+					dustScale1 = 0.75f;
 
-				dust1.scale *= 1.1f;
-				dust1.velocity *= 1.2f;
-				dust1.scale *= dustScale1;
+				if (Main.rand.NextBool(2))
+				{
+					Dust dust1 = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Shadowflame);
+					if (Main.rand.NextBool(3))
+					{
+						dust1.noGravity = true;
+						dust1.scale *= 3f;
+						dust1.velocity.X *= 2f;
+						dust1.velocity.Y *= 2f;
+					}
+
+					dust1.scale *= 1.1f;
+					dust1.velocity *= 1.2f;
+					dust1.scale *= dustScale1;
+				}
 			}
-			//This one emits cursed flame particles at random sizes and intervals
-			float projAI2 = Main.rand.NextFloat(2f);
-			float dustScale2 = 1f;
-			if (projAI2 == 0f)
-				dustScale2 = 0.25f;
-			else if (projAI2 == 1f)
-				dustScale2 = 0.5f;
-			else if (projAI2 == 2f)
-				dustScale2 = 0.75f;
-
-			if (Main.rand.NextBool(2))
+			else
 			{
-				Dust dust2 = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.CursedTorch);
-				if (Main.rand.NextBool(3))
-				{
-					dust2.noGravity = true;
-					dust2.scale *= 3f;
-					dust2.velocity.X *= 2f;
-					dust2.velocity.Y *= 2f;
-				}
+				//This one emits cursed flame particles at random sizes and intervals
+				float projAI2 = Main.rand.NextFloat(2f);
+				float dustScale2 = 1f;
+				if (projAI2 == 0f)
+					dustScale2 = 0.25f;
+				else if (projAI2 == 1f)
+					dustScale2 = 0.5f;
+				else if (projAI2 == 2f)
+					dustScale2 = 0.75f;
 
-				dust2.scale *= 1.1f;
-				dust2.velocity *= 1.2f;
-				dust2.scale *= dustScale2;
+				if (Main.rand.NextBool(2))
+				{
+					Dust dust2 = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.CursedTorch);
+					if (Main.rand.NextBool(3))
+					{
+						dust2.noGravity = true;
+						dust2.scale *= 3f;
+						dust2.velocity.X *= 2f;
+						dust2.velocity.Y *= 2f;
+					}
+
+					dust2.scale *= 1.1f;
+					dust2.velocity *= 1.2f;
+					dust2.scale *= dustScale2;
+				}
 			}
 		}
-		//The right click effects
+		//dual use code
 		public override bool AltFunctionUse(Player player)
 		{
 			return true;
 		}
 		public override bool CanUseItem(Player player)
-		{
+		{ //This is the right click
 			if (player.altFunctionUse == 2)
 			{
 				item.useStyle = ItemUseStyleID.SwingThrow;
@@ -124,7 +130,7 @@ namespace Blobfish.Items.Weapons
 				item.shootSpeed = 40f;*/
 			}
 			else
-			{
+			{ //This is the left click
 				item.useStyle = ItemUseStyleID.SwingThrow;
 				item.noUseGraphic = false;
 				item.useTime = 30;

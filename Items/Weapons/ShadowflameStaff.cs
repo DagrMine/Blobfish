@@ -19,17 +19,17 @@ namespace Blobfish.Items.Weapons
 		{
 			item.damage = 80;
 			item.magic = true;
-			//item.mana = 2;
+			item.mana = 2;
 			item.width = 108;
 			item.height = 108;
-			item.useTime = 21;
-			item.useAnimation = 21;
+			item.useTime = 14;
+			item.useAnimation = 20;
 			item.useStyle = 5;
 			item.noMelee = true;
 			item.knockBack = 2;
 			item.value = 60000;
 			item.rare = 6;
-			item.UseSound = SoundID.Item50;
+			item.UseSound = SoundID.Item60;
 			item.autoReuse = true;
 			item.shoot = ProjectileID.ShadowFlame;
 			item.shootSpeed = 40f;
@@ -59,8 +59,8 @@ namespace Blobfish.Items.Weapons
 			{
 				position += muzzleOffset;
 			}
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.ShadowFlame, damage = 80, knockBack = 2, player.whoAmI);
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.ShadowFlame, damage = 80, knockBack = 2, player.whoAmI);
+			Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, ProjectileID.ShadowFlame, damage = 80, knockBack = 2, player.whoAmI);
+			Projectile.NewProjectile(position.X, position.Y + 10, speedX, speedY, ProjectileID.ShadowFlame, damage = 80, knockBack = 2, player.whoAmI);
 			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.ShadowFlame, damage = 80, knockBack = 2, player.whoAmI);
 			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.ShadowFlame, damage = 80, knockBack = 2, player.whoAmI);
 			return true;
