@@ -116,9 +116,9 @@ namespace Blobfish.Items.Weapons
 			if (player.altFunctionUse == 2)
 			{
 				item.useStyle = ItemUseStyleID.SwingThrow;
-				item.noUseGraphic = true;
+				item.noUseGraphic = false;
 				item.useTime = 30;
-				item.useAnimation = 25;
+				item.useAnimation = 30;
 				item.damage = 100;
 				/*item.shoot = ModContent.ItemType<AmongUsSword>();
 				item.shootSpeed = 40f;*/
