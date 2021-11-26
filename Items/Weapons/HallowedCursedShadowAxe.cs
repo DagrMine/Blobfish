@@ -23,7 +23,7 @@ namespace Blobfish.Items.Weapons
 			item.melee = true;
 			item.width = 94;
 			item.height = 94;
-			item.useTime = 30;
+			item.useTime = 3; // @Knight376 // fast as fuck boi
 			item.useAnimation = 30;
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 5.85f;
