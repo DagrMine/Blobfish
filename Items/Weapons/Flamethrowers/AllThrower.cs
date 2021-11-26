@@ -22,7 +22,7 @@ namespace Blobfish.Items.Weapons.Flamethrowers
 			item.height = 68;
 			item.useTime = 4;
 			item.useAnimation = 4;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.noMelee = true;
 			item.knockBack = 2;
 			item.value = 60000;
