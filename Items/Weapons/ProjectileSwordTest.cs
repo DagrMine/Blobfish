@@ -23,9 +23,10 @@ namespace Blobfish.Items.Weapons
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 2.4f;
 			item.value = 1380;
-			item.rare = 4;
+			item.rare = ItemRarityID.LightRed;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
+			item.shoot = ProjectileID.Arkhalis;
 		}
 		
 		public override void AddRecipes() 
