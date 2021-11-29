@@ -30,13 +30,21 @@ namespace Blobfish.Items.Weapons
 		
 		public override void AddRecipes() 
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ModContent.ItemType<ShadowFlameItem>(), 4);
-			recipe.AddIngredient(ItemID.DemoniteBar, 16);
-			recipe.AddTile(TileID.Anvils);
-			//recipe.AddTile(TileID.ShadowAnvil); Modded Anvil, add later when 
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			ModRecipe recipeCorr = new ModRecipe(mod);
+			recipeCorr.AddIngredient(ModContent.ItemType<ShadowFlameItem>(), 4);
+			recipeCorr.AddIngredient(ItemID.DemoniteBar, 16);
+			recipeCorr.AddTile(TileID.Anvils);
+			//recipeCorr.AddTile(TileID.ShadowAnvil); Modded Anvil, add later when 
+			recipeCorr.SetResult(this);
+			recipeCorr.AddRecipe();
+
+			ModRecipe recipeCrim = new ModRecipe(mod);
+			recipeCrim.AddIngredient(ModContent.ItemType<ShadowFlameItem>(), 4);
+			recipeCrim.AddIngredient(ItemID.CrimtaneBar, 16);
+			recipeCrim.AddTile(TileID.Anvils);
+			//recipeCrim.AddTile(TileID.ShadowAnvil); Modded Anvil, add later when 
+			recipeCrim.SetResult(this);
+			recipeCrim.AddRecipe();
 		}
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
 		{
